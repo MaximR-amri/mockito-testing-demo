@@ -8,7 +8,7 @@ public class PaymentService {
 
 	public String pay(BookingRequest bookingRequest, double price) {
 		if (price > 200.0 && bookingRequest.getGuestCount() < 3) {
-			throw new UnsupportedOperationException("Only small payments are supported.");
+			throw new BusinessException();
 		}
 		String id = UUID.randomUUID().toString();
 		payments.put(id, price);
